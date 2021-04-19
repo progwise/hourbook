@@ -3,4 +3,4 @@ Harvest software dev hours
 
 Hello guys!
 
-Protected?
+Protected
