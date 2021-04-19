@@ -1,3 +1,3 @@
-export const UserInfo = () => {
+export const UserSettings = () => {
     return <div>Hallo, Michael</div>
 }

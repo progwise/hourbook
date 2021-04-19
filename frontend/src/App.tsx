@@ -1,16 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
-import {UserInfo} from "./components/userInfo";
+import {UserSettings} from "./components/userSettings";
 import React from "react";
-import { ProjectList } from './components/projectList';
+import {ProjectList} from './components/projectList';
+import {MainMenu} from './components/mainMenu';
+import { TimeBook } from './components/timeBook';
 
 function App() {
-  return (
-      <>
-        <UserInfo/>
-        <ProjectList/>
-      </>
-  );
+    return (
+        <>
+            <MainMenu/>
+            <UserSettings/>
+            <ProjectList/>
+            <TimeBook/>
+        </>
+    );
 }
 
 export default App;
