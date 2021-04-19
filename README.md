@@ -1,4 +1,6 @@
 # hourbook
 Harvest software dev hours
 
-Hello guys!
+Hello guys! 
+
+thi will be our first react-app.
