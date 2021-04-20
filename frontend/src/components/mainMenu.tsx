@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 export interface IPropsMainMenu {
     projectName: string
@@ -6,12 +7,15 @@ export interface IPropsMainMenu {
 
 export const MainMenu = (props: IPropsMainMenu) => {
 
-    let dayInfo = new Date();
+    const [ t2, setT2 ] = useState(new Date());
+
+    // let t2 = new Date();
+    // const setT2 = (newDate: Date) => t2 = newDate;
 
     setTimeout(() => {
         const now = new Date()
         console.log(now)
-        dayInfo = new Date()
+        setT2(now)
     }, 1000)
 
     return (<ul>
@@ -20,7 +24,7 @@ export const MainMenu = (props: IPropsMainMenu) => {
             {props.projectName}
         </li>
             <li>
-                {dayInfo.toLocaleTimeString()}
+                {t2.toLocaleTimeString()}
             </li>
             <li>Time</li>
             <li>Projects</li>
