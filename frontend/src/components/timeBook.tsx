@@ -1,5 +1,10 @@
 export const TimeBook = () => {
 
+    const hourData = {
+        'M': 4.5,
+        'T': 3.0,
+    };
+
     return <table>
         <thead>
         <th>M</th>
@@ -10,6 +15,16 @@ export const TimeBook = () => {
         <th>S</th>
         <th>Su</th>
         </thead>
-        <tbody></tbody>
+        <tbody>
+            <tr>
+                <td>{hourData['M']}</td>
+                <td>{hourData['T']}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
     </table>
 }
