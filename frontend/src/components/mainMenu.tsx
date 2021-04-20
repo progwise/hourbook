@@ -12,6 +12,9 @@ interface IMyState {
 
 export const MainMenu = (props: IPropsMainMenu) => {
 
+    // Todo: do not use own local state, use prop instead
+    // Hint: project id instead of name to simplify implementation
+    
     const [ myState, setMyState ] = useState<IMyState>({
         clock: new Date(),
         projectName: 'TestProjekt4711'
