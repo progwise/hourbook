@@ -1,10 +1,13 @@
-import { Interface } from "readline";
 
-export interface IProjectListProps{
-    selectedProjectId?: number
+export interface IProjectListProps {
+    selectedProjectId: number
+    onProjectSelected: (projectId: number) => void
 }
 
 export const ProjectList = (props: IProjectListProps) => {
+
+    console.log('ProjectList component was called');
+    
 
     // 1. array with 3 example projects plus project TS type
     const projectData = [{
@@ -30,14 +33,21 @@ export const ProjectList = (props: IProjectListProps) => {
 
     // 3. column with active | future | archived
 
+
+    const selectProject = (projectId: number) => {
+        console.log('selectProject', projectId)
+        props.onProjectSelected(projectId);
+    }
+
     const renderProject = (project: any, index: number) => {
-        if (props.selectedProjectId === project.id){
+        if (props.selectedProjectId === project.id) {
             return (
                 <tr key={index}>
                     <td>{project.id}</td>
                     <td>Selected! {project.name}</td>
                     <td>{project.start.toDateString()}</td>
                     <td>{project.end.toDateString()}</td>
+                    <td></td>
                 </tr>)
         }
         return (
@@ -46,8 +56,11 @@ export const ProjectList = (props: IProjectListProps) => {
                 <td>{project.name}</td>
                 <td>{project.start.toDateString()}</td>
                 <td>{project.end.toDateString()}</td>
+                <td>
+                    <button onClick={() => selectProject(project.id)}>Select</button>
+                </td>
             </tr>)
-        
+
     }
 
     return <table>
@@ -57,15 +70,16 @@ export const ProjectList = (props: IProjectListProps) => {
                 <th>Name</th>
                 <th>Start</th>
                 <th>Ende</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             {
-                projectData.map((value, index) => {
-                    return renderProject(value, index)
-
-                })
-
+                projectData.map(
+                    (value, index) => {
+                        return renderProject(value, index)
+                    }
+                )
             }
         </tbody>
         <tfoot></tfoot>

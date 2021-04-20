@@ -19,7 +19,6 @@ export const MainMenu = (props: IPropsMainMenu) => {
 
     setTimeout(() => {
         const now = new Date()
-        console.log(now)
         setMyState( {...myState, clock: now} )
     }, 3000)
 
