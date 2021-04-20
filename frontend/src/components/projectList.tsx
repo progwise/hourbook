@@ -1,7 +1,8 @@
+import { IProject } from "../common/definitions";
 
 export interface IProjectListProps {
     selectedProjectId: number
-    onProjectSelected: (projectId: number) => void
+    onProjectSelected: (project: IProject) => void
 }
 
 export const ProjectList = (props: IProjectListProps) => {
@@ -10,7 +11,7 @@ export const ProjectList = (props: IProjectListProps) => {
 
 
     // 1. array with 3 example projects plus project TS type
-    const projectData = [{
+    const projectData: IProject[] = [{
         id: 4711,
         name: 'TestProjekt1',
         start: new Date('1995-12-17T03:24:00'),
@@ -34,19 +35,19 @@ export const ProjectList = (props: IProjectListProps) => {
     // 3. column with active | future | archived
 
 
-    const selectProject = (projectId: number) => {
-        console.log('selectProject', projectId)
-        props.onProjectSelected(projectId);
+    const selectProject = (project: IProject) => {
+        console.log('selectProject', project)
+        props.onProjectSelected(project);
     }
 
-    const renderProject = (project: any, index: number) => {
+    const renderProject = (project: IProject, index: number) => {
         if (props.selectedProjectId === project.id) {
             return (
                 <tr key={index}>
                     <td>{project.id}</td>
                     <td>Selected! {project.name}</td>
-                    <td>{project.start.toDateString()}</td>
-                    <td>{project.end.toDateString()}</td>
+                    <td>{project.start?.toDateString()}</td>
+                    <td>{project.end?.toDateString()}</td>
                     <td></td>
                 </tr>)
         }
@@ -54,10 +55,10 @@ export const ProjectList = (props: IProjectListProps) => {
             <tr key={index}>
                 <td>{project.id}</td>
                 <td>{project.name}</td>
-                <td>{project.start.toDateString()}</td>
-                <td>{project.end.toDateString()}</td>
+                <td>{project.start?.toDateString()}</td>
+                <td>{project.end?.toDateString()}</td>
                 <td>
-                    <button onClick={() => selectProject(project.id)}>Select</button>
+                    <button onClick={() => selectProject(project)}>Select</button>
                 </td>
             </tr>)
 
