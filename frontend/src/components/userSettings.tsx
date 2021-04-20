@@ -1,3 +1,10 @@
+import { formatName } from "../common/stringFunctions";
+
 export const UserSettings = () => {
-    return <div>Hallo, Michael</div>
+    const user = {
+        firstName: 'Armin',
+        lastName: 'Köllner'
+      };    
+
+    return <div>Hallo, {formatName(user)}</div>
 }
