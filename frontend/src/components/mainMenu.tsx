@@ -7,11 +7,12 @@ export interface IPropsMainMenu {
 interface IMyState {
     clock?: Date
     projectName?: string
+    projectId?: number
 }
 
 export const MainMenu = (props: IPropsMainMenu) => {
 
-    let [ myState, setMyState ] = useState<IMyState>({
+    const [ myState, setMyState ] = useState<IMyState>({
         clock: new Date(),
         projectName: 'TestProjekt4711'
     });
@@ -19,7 +20,7 @@ export const MainMenu = (props: IPropsMainMenu) => {
     setTimeout(() => {
         const now = new Date()
         console.log(now)
-        setMyState({clock: now})
+        setMyState( {...myState, clock: now} )
     }, 3000)
 
     return (<ul>
