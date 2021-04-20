@@ -1,4 +1,3 @@
 # hourbook
-Harvest software dev hours
+Time booking for  software developers
 
-Hello guys!
