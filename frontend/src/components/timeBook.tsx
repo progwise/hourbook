@@ -1,11 +1,18 @@
-export const TimeBook = () => {
+export interface ITimeBookProps {
+    startDay: Date
+}
+
+export const TimeBook = (props: ITimeBookProps) => {
 
     const hourData = {
         'M': 4.5,
         'T': 3.0,
     };
 
-    return <table>
+    return (
+        <>
+        <h1>Start day {props.startDay.toDateString()}</h1>
+        <table>
         <thead>
             <tr>
                 <th>M</th>
@@ -29,4 +36,6 @@ export const TimeBook = () => {
             </tr>
         </tbody>
     </table>
+    </>
+    )
 }
