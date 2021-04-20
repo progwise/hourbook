@@ -1,6 +1,6 @@
 export const ProjectList = () => {
 
-    // 1. array with 3 example projects
+    // 1. array with 3 example projects plus project TS type
     const projectData = [];
 
     // 2. prop with selected project id
