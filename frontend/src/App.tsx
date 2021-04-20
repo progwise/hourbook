@@ -5,21 +5,22 @@ import {ProjectList} from './components/projectList';
 import {MainMenu} from './components/mainMenu';
 import { TimeBook } from './components/timeBook/timeBook';
 import { useState } from 'react';
+import { IProject } from './common/definitions';
 
 function App() {
 
-    const p = {
+    const p: IProject = {
         id: 4711,
         name: "Testp4711"
     }
 
-    const [selectedProjectId, setSelectedProjectId] = useState(p.id);
+    const [selectedProject, setSelectedProject] = useState(p);
     
     return (
         <>
-            <MainMenu projectId={p.name}/>
+            <MainMenu project={selectedProject}/>
             <UserSettings/>
-            <ProjectList selectedProjectId={selectedProjectId} onProjectSelected={setSelectedProjectId}/>
+            <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject}/>
             <TimeBook/>
         </>
     );
