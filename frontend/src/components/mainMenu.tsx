@@ -1,4 +1,10 @@
-export const MainMenu = () => {
+
+export interface IPropsMainMenu {
+    projectName: string
+    userName?: string
+} 
+
+export const MainMenu = (props: IPropsMainMenu) => {
 
     let dayInfo = new Date();
 
@@ -9,6 +15,10 @@ export const MainMenu = () => {
     }, 1000)
 
     return (<ul>
+        <li>
+            Current project: 
+            {props.projectName}
+        </li>
             <li>
                 {dayInfo.toLocaleTimeString()}
             </li>

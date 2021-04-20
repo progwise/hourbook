@@ -6,9 +6,15 @@ import {MainMenu} from './components/mainMenu';
 import { TimeBook } from './components/timeBook';
 
 function App() {
+
+    const p = {
+        id: 4711,
+        name: "Testp4711"
+    }
+
     return (
         <>
-            <MainMenu/>
+            <MainMenu projectName={p.name}/>
             <UserSettings/>
             <ProjectList/>
             <TimeBook/>
