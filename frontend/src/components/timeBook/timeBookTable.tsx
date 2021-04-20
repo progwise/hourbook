@@ -1,25 +1,11 @@
-export interface ITimeBookProps {
-    startDay: Date
-}
-
-export const TimeBook = (props: ITimeBookProps) => {
+export const TimeBookTable = (props: any) => {
 
     const hourData = {
         'M': 4.5,
         'T': 3.0,
     };
 
-    const addDays = (date: Date, numDays: number) => {
-        const result = new Date(date);
-        result.setDate(result.getDate() + 6);
-        return result;
-    }
-
-    const endDay = addDays(props.startDay, 6);
-
     return (
-        <>
-        <h2>From {props.startDay.toDateString()} until {endDay.toDateString()}</h2>
         <table>
         <thead>
             <tr>
@@ -43,7 +29,6 @@ export const TimeBook = (props: ITimeBookProps) => {
                 <td></td>
             </tr>
         </tbody>
-    </table>
-    </>
+        </table> 
     )
 }

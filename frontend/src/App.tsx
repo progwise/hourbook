@@ -3,7 +3,7 @@ import './App.css';
 import {UserSettings} from "./components/userSettings";
 import {ProjectList} from './components/projectList';
 import {MainMenu} from './components/mainMenu';
-import { TimeBook } from './components/timeBook';
+import { TimeBook } from './components/timeBook/timeBook';
 
 function App() {
 
