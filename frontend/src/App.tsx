@@ -14,10 +14,10 @@ function App() {
 
     return (
         <>
-            <MainMenu projectName={p.name} />
+            <MainMenu projectId={p.name}/>
             <UserSettings/>
             <ProjectList/>
-            <TimeBook startDay={new Date()}/>
+            <TimeBook/>
         </>
     );
 }

@@ -1,30 +1,34 @@
 import { useState } from "react";
 
 export interface IPropsMainMenu {
-    projectName: string
-    userName?: string
+    projectId: string
 } 
+
+interface IMyState {
+    clock?: Date
+    projectName?: string
+}
 
 export const MainMenu = (props: IPropsMainMenu) => {
 
-    const [ t2, setT2 ] = useState(new Date());
-
-    // let t2 = new Date();
-    // const setT2 = (newDate: Date) => t2 = newDate;
+    let [ myState, setMyState ] = useState<IMyState>({
+        clock: new Date(),
+        projectName: 'TestProjekt4711'
+    });
 
     setTimeout(() => {
         const now = new Date()
         console.log(now)
-        setT2(now)
-    }, 1000)
+        setMyState({clock: now})
+    }, 3000)
 
     return (<ul>
         <li>
             Current project: 
-            {props.projectName}
+            {myState.projectName}
         </li>
             <li>
-                {t2.toLocaleTimeString()}
+                {myState.clock?.toLocaleTimeString()}
             </li>
             <li>Time</li>
             <li>Projects</li>

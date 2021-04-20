@@ -2,13 +2,15 @@ import { TimeBookHeadline } from "./timeBookHeadline";
 import { TimeBookTable } from "./timeBookTable";
 
 export interface ITimeBookProps {
-    startDay: Date
 }
 
 export const TimeBook = (props: ITimeBookProps) => {
+
+    const startDay = new Date();
+    
     return (
         <>
-            <TimeBookHeadline startDay={props.startDay}></TimeBookHeadline>
+            <TimeBookHeadline startDay={startDay}></TimeBookHeadline>
             <TimeBookTable></TimeBookTable>
         </>
     )
