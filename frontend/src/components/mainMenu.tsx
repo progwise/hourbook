@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { IProject } from "../common/definitions";
 
 export interface IPropsMainMenu {
@@ -28,11 +29,8 @@ export const MainMenu = (props: IPropsMainMenu) => {
             Current project: 
             {props.project.name}
         </li>
-            <li>
-                {myState.clock?.toLocaleTimeString()}
-            </li>
-            <li>Time</li>
-            <li>Projects</li>
+            <li><Link to='/timebook'>Time</Link></li>
+            <li><Link to='/projects'>Projects</Link></li>
             <li>Reports</li>
         </ul>
     )

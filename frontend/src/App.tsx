@@ -7,6 +7,7 @@ import { Logo } from './components/logo';
 import { TimeBook } from './components/timeBook/timeBook';
 import { useState } from 'react';
 import { IProject } from './common/definitions';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
 
@@ -19,11 +20,18 @@ function App() {
 
     return (
         <>
+        
+        <Router>
             <Logo />
             <MainMenu project={selectedProject} />
             <UserSettings />
+            <Route path='/projects'>
             <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
+            </Route>
+            <Route path='/timebook'>
             <TimeBook />
+            </Route>
+            </Router>
         </>
     );
 }
