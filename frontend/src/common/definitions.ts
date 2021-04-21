@@ -4,3 +4,9 @@ export interface IProject {
     start?: Date,
     end?: Date
 }
+
+export interface ICountry {
+    alpha3Code: string,
+    name: string,
+    region: string
+}

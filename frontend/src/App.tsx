@@ -5,8 +5,9 @@ import { ProjectList } from './components/projectList';
 import { MainMenu } from './components/mainMenu';
 import { Logo } from './components/logo';
 import { TimeBook } from './components/timeBook/timeBook';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { IProject } from './common/definitions';
+import { CountryList } from './components/countryList';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
         <>
             <Logo />
             <MainMenu project={selectedProject} />
+            <CountryList></CountryList>
             <UserSettings />
             <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
             <TimeBook />
