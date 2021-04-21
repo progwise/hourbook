@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IProject } from "../common/definitions";
 
 export interface IPropsMainMenu {
@@ -18,10 +18,24 @@ export const MainMenu = (props: IPropsMainMenu) => {
         clock: new Date()
     });
 
-    setTimeout(() => {
+    let t = setTimeout(() => {
         const now = new Date()
         setMyState( {...myState, clock: now} )
-    }, 3000)
+    }, 1000)
+
+    useEffect(() => {
+        // this code is executed when component is loading
+
+        return () => { 
+            // this code is executed when component is unloading
+         }
+    }, [])
+    
+    useEffect(() => {
+        // I would not recommind this
+        document.title = 'hb-' + myState.clock?.toLocaleTimeString()
+    }, [myState])
+  
 
     return (<ul>
         <li>
