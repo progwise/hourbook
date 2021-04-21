@@ -38,6 +38,10 @@ function App() {
                     <h2>Timebook</h2>
                     <TimeBook />
                 </Route>
+                <Route path='/reports'>
+                    <h2>Reports</h2>
+                    <p>Not implemented yet</p>
+                </Route>
                 <Route path='*'>
                     <h2>Homepage</h2>
                     <p>Welcome to hourlist</p>
