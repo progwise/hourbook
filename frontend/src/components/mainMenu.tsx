@@ -32,7 +32,7 @@ export const MainMenu = (props: IPropsMainMenu) => {
                 {myState.clock?.toLocaleTimeString()}
             </li>
             <li>Time</li>
-            <li>Projects</li>
+            <li><a href='/projects'>Projects</a></li>
             <li>Reports</li>
         </ul>
     )
