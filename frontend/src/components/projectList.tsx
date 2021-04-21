@@ -8,7 +8,7 @@ export interface IProjectListProps {
 export const ProjectList = (props: IProjectListProps) => {
 
     console.log('ProjectList component was called');
-    
+
 
     // 1. array with 3 example projects plus project TS type
     const projectData: IProject[] = [{
