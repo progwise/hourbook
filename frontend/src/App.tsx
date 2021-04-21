@@ -5,6 +5,7 @@ import {MainMenu} from './components/mainMenu';
 import {TimeBook} from './components/timeBook/timeBook';
 import {useState} from "react";
 import {IProject} from "./interfaces/iProject";
+import {LogoGadget} from "./components/logoGadget";
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
 
     return (
         <>
+            <LogoGadget />
             <MainMenu currentProject={selectedProject}/>
             <UserSettings/>
             <ProjectList project={selectedProject} onProjectSelected={setSelectedProject}/>
