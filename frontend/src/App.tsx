@@ -23,11 +23,11 @@ function App() {
         <>
             <Logo />
             <MainMenu project={selectedProject} />
-            <CountryList></CountryList>
+            {/* <CountryList></CountryList> */}
             <UserSettings />
             <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
             <hr></hr>
-            <EditProject></EditProject>
+            <EditProject selectedProject={selectedProject}></EditProject>
             <hr></hr>
             <TimeBook />
         </>
