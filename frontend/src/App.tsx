@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { UserSettings } from "./components/userSettings";
 import { ProjectList } from './components/projectList';
+import { EditProject } from './components/editProject';
 import { MainMenu } from './components/mainMenu';
 import { Logo } from './components/logo';
 import { TimeBook } from './components/timeBook/timeBook';
@@ -25,6 +26,9 @@ function App() {
             <CountryList></CountryList>
             <UserSettings />
             <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
+            <hr></hr>
+            <EditProject></EditProject>
+            <hr></hr>
             <TimeBook />
         </>
     );
