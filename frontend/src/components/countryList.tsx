@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react"
-import { ICountry } from "../common/definitions";
-import { fetchWithTimeout } from "../common/fetchFunctions";
+import {useEffect, useState} from "react"
+import {ICountry} from "../common/definitions";
+import {fetchWithTimeout} from "../common/fetchFunctions";
 
 export const CountryList = () => {
 
@@ -11,9 +11,13 @@ export const CountryList = () => {
     const [countries, setCountries] = useState<ICountry[]>([])
 
     const fetchCountries = async () => {
-        let response = await fetchWithTimeout('https://restcountries.eu/rest/v2/all', 10)
-        let data = await response.json()
-        setCountries(data as ICountry[]);
+        try {
+            let response = await fetchWithTimeout('https://restcountries.eu/rest/v2/all', 1000)
+            let data = await response.json()
+            setCountries(data as ICountry[]);
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     useEffect(() => {
@@ -32,22 +36,22 @@ export const CountryList = () => {
 
     return <table>
         <thead>
-            <tr>
-                <th>id</th>
-                <th>name</th>
-                <th>region</th>
-            </tr>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>region</th>
+        </tr>
         </thead>
         <tbody>
-            {
-                countries.map((country, index) => (
-                    <tr key={index}>
-                        <td>{ country.alpha3Code }</td>
-                        <td>{ country.name }</td>
-                        <td>{ country.region }</td>
-                    </tr>
-                ))
-            }
+        {
+            countries.map((country, index) => (
+                <tr key={index}>
+                    <td>{country.alpha3Code}</td>
+                    <td>{country.name}</td>
+                    <td>{country.region}</td>
+                </tr>
+            ))
+        }
         </tbody>
     </table>
 }

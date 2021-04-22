@@ -1,11 +1,12 @@
 
 
-export const fetchWithTimeout = (input: RequestInfo, timeout = 1000): Promise<any> => {
+export const fetchWithTimeout = (request: RequestInfo, timeout = 1000): Promise<any> => {
 
     return Promise.race([
-        fetch(input),
+        fetch(request),
         new Promise( (_, reject) => {
-            setTimeout(() => reject('timed out'), timeout)
+            console.log(timeout)
+            setTimeout(() => reject({request, timeout, reason:'timed out'}), timeout)
         } )
     ])
 }

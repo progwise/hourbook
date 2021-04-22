@@ -8,7 +8,7 @@ ReactDOM.render(<App/>, document.getElementById('root'));
 function tick() {
     const element = (
         <div>
-            <h1>Hello, world1 abc!</h1>
+            <h1>Hello, world abc!</h1>
             <h2>It is {new Date().toLocaleTimeString()}.</h2>
         </div>
     );
