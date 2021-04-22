@@ -7,19 +7,14 @@ export interface IEditProjectProps  {
 
 export const EditProject = (props: IEditProjectProps) => {
 
-    const [projectId, setProjectId] = useState(props.selectedProject.id)
-    const [projectName, setProjectName] = useState(props.selectedProject.name)
-    const [projectStart, setProjectStart] = useState(props.selectedProject.start)
-    const [projectEnd, setProjectEnd] = useState(props.selectedProject.end)
-
-    return <form>
+    return <form key={props.selectedProject.id}>
         <label>
             Project id
-            <input name="pid" type="text" value={projectId} onChange={(event) => setProjectId(parseInt(event.target.value))} />
+            <input name="pid" type="text" defaultValue={props.selectedProject.id} />
         </label>
         <label>
             Project name
-            <input name="pname" type="text" defaultValue={projectName} onChange={(event) => setProjectName(event.target.value)}  />
+            <input name="pname" type="text"  defaultValue={props.selectedProject.name}   />
         </label>
         <label>
             Project start
