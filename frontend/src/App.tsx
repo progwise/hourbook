@@ -7,6 +7,7 @@ import { Logo } from './components/logo';
 import { TimeBook } from './components/timeBook/timeBook';
 import { useState } from 'react';
 import { IProject } from './common/definitions';
+import { Joke } from './components/joke';
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
     return (
         <>
             <Logo />
+            <Joke />
             <MainMenu project={selectedProject} />
             <UserSettings />
             <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
