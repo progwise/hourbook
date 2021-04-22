@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { ICountry } from "../common/definitions";
+import { fetchWithTimeout } from "../common/fetchFunctions";
 
 export const CountryList = () => {
 
@@ -10,7 +11,7 @@ export const CountryList = () => {
     const [countries, setCountries] = useState<ICountry[]>([])
 
     const fetchCountries = async () => {
-        let response = await fetch('https://restcountries.eu/rest/v2/all')
+        let response = await fetchWithTimeout('https://restcountries.eu/rest/v2/all', 10)
         let data = await response.json()
         setCountries(data as ICountry[]);
     }
