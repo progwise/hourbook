@@ -19,6 +19,7 @@ function App() {
     const [selectedProject, setSelectedProject] = useState(p);
 
     return (
+        <section className="App h-screen w-full flex justify-center items-center bg-green-500">
         <BrowserRouter>
             <Logo />
             <MainMenu project={selectedProject} />
@@ -48,6 +49,7 @@ function App() {
                 </Route>
             </Switch>
         </BrowserRouter>
+        </section>
     );
 }
 
