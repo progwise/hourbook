@@ -8,7 +8,8 @@ import { Logo } from './components/logo';
 import { TimeBook } from './components/timeBook/timeBook';
 import React, { useState } from 'react';
 import { IProject } from './common/definitions';
-import { ProjectContext, projectContextDataDefault } from './common/projectContext';
+import { ProjectContextProvider } from './common/projectContext';
+import { useProjectContext } from './common/useProjectContext';
 
 function App() {
 
@@ -17,11 +18,11 @@ function App() {
             <Logo />
             <UserSettings />
 
-            <ProjectContext.Provider value={projectContextDataDefault}>
+            <ProjectContextProvider>
                 <MainMenu />
                 <ProjectList />
                 <EditProject />
-            </ProjectContext.Provider>
+            </ProjectContextProvider>
             <TimeBook />
         </>
     );

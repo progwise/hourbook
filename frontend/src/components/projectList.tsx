@@ -4,13 +4,7 @@ import { useProjectContext } from "../common/useProjectContext";
 
 export const ProjectList = () => {
 
-    console.log('ProjectList component was called');
-
-    const { loadProjects, projectList, selectedProject, selectProject } = useProjectContext()
-
-    useEffect(() => {
-        loadProjects()
-    }, [])
+    const { projectList, selectedProject, selectProject } = useProjectContext()
 
     // not needed any more
     // const selectProject = (project: IProject) => {
@@ -35,7 +29,9 @@ export const ProjectList = () => {
                 <td>{project.start?.toDateString()}</td>
                 <td>{project.end?.toDateString()}</td>
                 <td>
-                    <button onClick={() => selectProject(project)}>Select</button>
+                    <button onClick={() => {
+                        console.log('ProjectList select', project)
+                        selectProject(project)}}>Select</button>
                 </td>
             </tr>)
 

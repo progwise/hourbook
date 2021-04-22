@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
 import { IProject } from "../common/definitions";
-import { ProjectContext } from "../common/projectContext";
 import { useProjectContext } from "../common/useProjectContext";
 
 
@@ -18,6 +17,8 @@ export const MainMenu = () => {
     });
 
     const { selectedProject } = useProjectContext()
+
+    console.log('MainMenu', selectedProject)
 
     setTimeout(() => {
         const now = new Date()

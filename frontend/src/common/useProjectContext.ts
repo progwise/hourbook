@@ -1,20 +1,11 @@
-import { useCallback, useState } from "react"
+import { useCallback, useContext, useState } from "react"
 import { mockedProjectList } from "../mocks/mockedProjectList"
 import { IProject } from "./definitions"
+import { projectContext } from "./projectContext"
 
 export const useProjectContext = () => {
 
-    const [ projectList, setProjectList ] = useState<IProject[]>([])
-    const [ selectedProject, selectProject ] = useState<IProject | undefined>(undefined)
+    const contextData = useContext(projectContext)
 
-    const loadProjects = useCallback(() => {
-        setProjectList(mockedProjectList)
-    }, [])
-
-    return {
-        loadProjects,
-        selectProject,
-        projectList,
-        selectedProject
-    }
+    return contextData
 }
