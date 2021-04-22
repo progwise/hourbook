@@ -25,7 +25,7 @@ function App() {
             <UserSettings />
             <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
             <hr></hr>
-            <EditProject></EditProject>
+            <EditProject selectedProject={selectedProject}></EditProject>
             <hr></hr>
             <TimeBook />
         </>
