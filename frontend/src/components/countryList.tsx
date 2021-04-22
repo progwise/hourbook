@@ -9,16 +9,24 @@ export const CountryList = () => {
 
     const [countries, setCountries] = useState<ICountry[]>([])
 
+    const fetchCountries = async () => {
+        let response = await fetch('https://restcountries.eu/rest/v2/all')
+        let data = await response.json()
+        setCountries(data as ICountry[]);
+    }
+
     useEffect(() => {
-        fetch('https://restcountries.eu/rest/v2/all')
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                // todo: work with the fetched data
-                console.log(data);
-                setCountries(data as ICountry[])
-            })
+        fetchCountries()
+
+        // fetch('https://restcountries.eu/rest/v2/all')
+        //     .then(response => {
+        //         return response.json()
+        //     })
+        //     .then(data => {
+        //         // todo: work with the fetched data
+        //         console.log(data);
+        //         setCountries(data as ICountry[])
+        //     })
     }, []);
 
     return <table>
