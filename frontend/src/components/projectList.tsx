@@ -1,47 +1,24 @@
+import { useEffect } from "react";
 import { IProject } from "../common/definitions";
+import { useProjectContext } from "../common/useProjectContext";
 
-export interface IProjectListProps {
-    selectedProjectId: number
-    onProjectSelected: (project: IProject) => void
-}
-
-export const ProjectList = (props: IProjectListProps) => {
+export const ProjectList = () => {
 
     console.log('ProjectList component was called');
 
+    const { loadProjects, projectList, selectedProject, selectProject } = useProjectContext()
 
-    // 1. array with 3 example projects plus project TS type
-    const projectData: IProject[] = [{
-        id: 4711,
-        name: 'TestProjekt1',
-        start: new Date('1995-12-17T03:24:00'),
-        end: new Date('1996-12-17T03:24:00')
-    },
-    {
-        id: 4712,
-        name: 'TestProjekt2',
-        start: new Date('1995-12-17T03:24:00'),
-        end: new Date('1996-12-17T03:24:00')
-    },
-    {
-        id: 4713,
-        name: 'TestProjekt3',
-        start: new Date('1995-12-17T03:24:00'),
-        end: new Date('1996-12-17T03:24:00')
-    }];
+    useEffect(() => {
+        loadProjects()
+    }, [])
 
-    // 2. prop with selected project id
-
-    // 3. column with active | future | archived
-
-
-    const selectProject = (project: IProject) => {
-        console.log('selectProject', project)
-        props.onProjectSelected(project);
-    }
+    // not needed any more
+    // const selectProject = (project: IProject) => {
+    //     selectProject(project)
+    // }
 
     const renderProject = (project: IProject, index: number) => {
-        if (props.selectedProjectId === project.id) {
+        if (selectedProject?.id === project.id) {
             return (
                 <tr key={index}>
                     <td>{project.id}</td>
@@ -76,7 +53,7 @@ export const ProjectList = (props: IProjectListProps) => {
         </thead>
         <tbody>
             {
-                projectData.map(
+                projectList.map(
                     (value, index) => {
                         return renderProject(value, index)
                     }

@@ -1,15 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IProject } from "../common/definitions";
+import { ProjectContext } from "../common/projectContext";
+import { useProjectContext } from "../common/useProjectContext";
 
-export interface IPropsMainMenu {
-    project: IProject
-} 
 
 interface IMyState {
     clock?: Date
 }
 
-export const MainMenu = (props: IPropsMainMenu) => {
+export const MainMenu = () => {
 
     // Todo: do not use own local state, use prop instead
     // Hint: project id instead of name to simplify implementation
@@ -17,6 +16,8 @@ export const MainMenu = (props: IPropsMainMenu) => {
     const [ myState, setMyState ] = useState<IMyState>({
         clock: new Date()
     });
+
+    const { selectedProject } = useProjectContext()
 
     setTimeout(() => {
         const now = new Date()
@@ -26,7 +27,11 @@ export const MainMenu = (props: IPropsMainMenu) => {
     return (<ul>
         <li>
             Current project: 
-            {props.project.name}
+            {
+                selectedProject
+                ?<span>{selectedProject.name}</span>
+                :<span>No project selected</span>
+            }
         </li>
             <li>
                 {myState.clock?.toLocaleTimeString()}

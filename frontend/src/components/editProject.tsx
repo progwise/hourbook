@@ -1,28 +1,31 @@
 import { useState } from "react"
 import { IProject } from "../common/definitions"
+import { useProjectContext } from "../common/useProjectContext"
 
-export interface IEditProjectProps  {
-    selectedProject: IProject
-}
+export const EditProject = () => {
 
-export const EditProject = (props: IEditProjectProps) => {
+    const { selectedProject } = useProjectContext()
 
-    return <form key={props.selectedProject.id}>
+    if (!selectedProject) {
+        return <div>No project selected</div>
+    }
+
+    return <form key={selectedProject.id}>
         <label>
             Project id
-            <input name="pid" type="text" defaultValue={props.selectedProject.id} />
+            <input name="pid" type="text" defaultValue={selectedProject.id} />
         </label>
         <label>
             Project name
-            <input name="pname" type="text"  defaultValue={props.selectedProject.name}   />
+            <input name="pname" type="text"  defaultValue={selectedProject.name}   />
         </label>
         <label>
             Project start
-            <input name="pstart" type="text" defaultValue={props.selectedProject.start?.toLocaleTimeString()} />
+            <input name="pstart" type="text" defaultValue={selectedProject.start?.toLocaleTimeString()} />
         </label>
         <label>
             Project end
-            <input name="pend" type="text" defaultValue={props.selectedProject.end?.toLocaleTimeString()} />
+            <input name="pend" type="text" defaultValue={selectedProject.end?.toLocaleTimeString()} />
         </label>
         <button type="submit">Submit</button>
     </form>

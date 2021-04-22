@@ -8,25 +8,20 @@ import { Logo } from './components/logo';
 import { TimeBook } from './components/timeBook/timeBook';
 import React, { useState } from 'react';
 import { IProject } from './common/definitions';
+import { ProjectContext, projectContextDataDefault } from './common/projectContext';
 
 function App() {
-
-    const p: IProject = {
-        id: 4711,
-        name: "Testp4711"
-    }
-
-    const [selectedProject, setSelectedProject] = useState(p);
 
     return (
         <>
             <Logo />
-            <MainMenu project={selectedProject} />
             <UserSettings />
-            <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
-            <hr></hr>
-            <EditProject selectedProject={selectedProject}></EditProject>
-            <hr></hr>
+
+            <ProjectContext.Provider value={projectContextDataDefault}>
+                <MainMenu />
+                <ProjectList />
+                <EditProject />
+            </ProjectContext.Provider>
             <TimeBook />
         </>
     );

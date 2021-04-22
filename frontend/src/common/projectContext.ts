@@ -6,7 +6,9 @@ export interface IProjectContextData {
     selectedProject: IProject | undefined
 }
 
-export const ProjectContext = createContext<IProjectContextData>({
+export const projectContextDataDefault = {
     projectList: [],
     selectedProject: undefined
-})
+}
+
+export const ProjectContext = createContext<IProjectContextData>(projectContextDataDefault)
