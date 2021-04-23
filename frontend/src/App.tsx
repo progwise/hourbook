@@ -8,30 +8,32 @@ import { TimeBook } from './components/timeBook/timeBook';
 import { useState } from 'react';
 import { IProject } from './common/definitions';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { EditProject } from './components/editProject';
+import { ProjectContextProvider } from './common/projectContextProvider';
 
 function App() {
 
-    const p: IProject = {
-        id: 4711,
-        name: "Testp4711"
-    }
-
-    const [selectedProject, setSelectedProject] = useState(p);
-
     return (
         <>
-        
+        <ProjectContextProvider>
+            <h1>
+                Hourbook
+            </h1>
         <Router>
             <Logo />
-            <MainMenu project={selectedProject} />
+            <MainMenu />
             <UserSettings />
+            <Route path='/editProject'>
+                <EditProject />
+            </Route>
             <Route path='/projects'>
-            <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
+            <ProjectList />
             </Route>
             <Route path='/timebook'>
             <TimeBook />
             </Route>
             </Router>
+            </ProjectContextProvider>
         </>
     );
 }

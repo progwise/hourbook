@@ -1,16 +1,12 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { IProject } from "../common/definitions";
-
-export interface IPropsMainMenu {
-    project: IProject
-} 
+import { useProjects } from "../common/useProjectContext";
 
 interface IMyState {
     clock?: Date
 }
 
-export const MainMenu = (props: IPropsMainMenu) => {
+export const MainMenu = () => {
 
     // Todo: do not use own local state, use prop instead
     // Hint: project id instead of name to simplify implementation
@@ -19,6 +15,8 @@ export const MainMenu = (props: IPropsMainMenu) => {
         clock: new Date()
     });
 
+    const { selectedProject } = useProjects()
+
     setTimeout(() => {
         const now = new Date()
         setMyState( {...myState, clock: now} )
@@ -26,9 +24,15 @@ export const MainMenu = (props: IPropsMainMenu) => {
 
     return (<ul>
         <li>
+        <li>
             Current project: 
-            {props.project.name}
+            {
+                selectedProject ?
+                <span>{selectedProject.name}</span>
+                :<span>No project selected</span>
+            }
         </li>
+            </li>
             <li><Link to='/timebook'>Time</Link></li>
             <li><Link to='/projects'>Projects</Link></li>
             <li>Reports</li>
