@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cypress open"
   },
   "author": "Michael H. Vogt",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cypress": "^7.1.0"
+  }
 }
