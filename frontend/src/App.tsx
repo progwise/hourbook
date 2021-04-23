@@ -11,19 +11,12 @@ import { ProjectContextProvider } from './common/projectContextProvider';
 
 function App() {
 
-    const p: IProject = {
-        id: 4711,
-        name: "Testp4711"
-    }
-
-    const [selectedProject, setSelectedProject] = useState(p);
-
     return (
         <ProjectContextProvider>
             <Logo />
-            <MainMenu project={selectedProject} />
+            <MainMenu />
             <UserSettings />
-            <ProjectList selectedProjectId={selectedProject.id} onProjectSelected={setSelectedProject} />
+            <ProjectList />
             <TimeBook />
         </ProjectContextProvider>
     );

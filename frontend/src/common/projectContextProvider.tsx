@@ -13,7 +13,7 @@ const defaultProjectContext: IProjectContextData = {
     selectProject: (project: IProject) => {}
 }
 
-const projectContext = React.createContext<IProjectContextData>(defaultProjectContext)
+export const projectContext = React.createContext<IProjectContextData>(defaultProjectContext)
 
 export interface IProjectContextProviderProps {
     children: JSX.Element[]
