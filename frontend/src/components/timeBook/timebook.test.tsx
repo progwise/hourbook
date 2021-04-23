@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react"
-import { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } from "node:constants"
 import { TimeBook } from './timeBook'
 
 describe('the timebook component...', () => {
