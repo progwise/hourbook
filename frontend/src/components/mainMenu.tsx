@@ -19,7 +19,7 @@ export const MainMenu = () => {
 
     const { selectedProject } = useProjectContext()
 
-    console.log('MainMenu', selectedProject)
+    //console.log('MainMenu', selectedProject)
 
     setTimeout(() => {
         const now = new Date()
@@ -48,4 +48,3 @@ export const MainMenu = () => {
         </MyNav>)
     
 }
-

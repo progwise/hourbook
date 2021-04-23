@@ -1,7 +1,5 @@
-import { useCallback, useContext, useState } from "react"
-import { mockedProjectList } from "../mocks/mockedProjectList"
-import { IProject } from "./definitions"
-import { projectContext } from "./projectContext"
+import {useContext} from "react"
+import {projectContext} from "./projectContext"
 
 export const useProjectContext = () => {
 

@@ -1,18 +1,16 @@
 import './App.css';
 
-import { UserSettings } from "./components/userSettings";
-import { ProjectList } from './components/projectList';
-import { EditProject } from './components/editProject';
-import { MainMenu } from './components/mainMenu';
-import { Logo } from './components/logo';
-import { TimeBook } from './components/timeBook/timeBook';
-import { ProjectContextProvider } from './common/projectContext';
-import React from 'react';
+import {UserSettings} from "./components/userSettings";
+import {ProjectList} from './components/projectList';
+import {EditProject} from './components/editProject';
+import {MainMenu} from './components/mainMenu';
+import {Logo} from './components/logo';
+import {TimeBook} from './components/timeBook/timeBook';
+import {ProjectContextProvider} from './common/projectContext';
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import { DarkModeSwitch } from './components/darkModeSwitch';
 

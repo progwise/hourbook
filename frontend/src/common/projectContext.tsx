@@ -1,6 +1,6 @@
-import { createContext, ReactNode, useCallback, useEffect, useState } from "react";
-import { mockedProjectList } from "../mocks/mockedProjectList";
-import { IProject } from "./definitions";
+import {createContext, ReactNode, useEffect, useState} from "react";
+import {mockedProjectList} from "../mocks/mockedProjectList";
+import {IProject} from "./definitions";
 
 export interface IProjectContextData {
     projectList: IProject[]
