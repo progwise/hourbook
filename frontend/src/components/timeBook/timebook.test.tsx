@@ -14,7 +14,6 @@ describe('the timebook component...', () => {
 
         expect(rows.length).toBe(1)
 
-        screen.debug()
 
     })
 })
