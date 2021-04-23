@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom";
-import { IProject } from "../common/definitions";
-import { useProjectContext } from "../common/useProjectContext";
+import {useHistory} from "react-router-dom";
+import {IProject} from "../common/definitions";
+import {useProjectContext} from "../common/useProjectContext";
 
 export const ProjectList = () => {
 

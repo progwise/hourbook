@@ -1,6 +1,4 @@
-import { useState } from "react"
-import { IProject } from "../common/definitions"
-import { useProjectContext } from "../common/useProjectContext"
+import {useProjectContext} from "../common/useProjectContext"
 
 export const EditProject = () => {
 
