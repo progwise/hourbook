@@ -1,17 +1,16 @@
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { IProject } from "../common/definitions";
 import { useProjectContext } from "../common/useProjectContext";
 
 export const ProjectList = () => {
 
     const { projectList, selectedProject, selectProject } = useProjectContext()
-    const l = useLocation()
+    const {push} = useHistory()
 
     const editProject = (project: IProject) => {
         selectProject(project)
-        l.pathname = ''
-
+        push('/projects/edit')
     }
 
     const renderProject = (project: IProject, index: number) => {
@@ -22,7 +21,12 @@ export const ProjectList = () => {
                     <td>Selected! {project.name}</td>
                     <td>{project.start?.toDateString()}</td>
                     <td>{project.end?.toDateString()}</td>
-                    <td></td>
+                    <td>
+
+                    <button onClick={() => {
+                        editProject(project)
+                    }}>Edit</button>
+                    </td>
                 </tr>)
         }
         return (
@@ -35,10 +39,7 @@ export const ProjectList = () => {
                     <button onClick={() => {
                         selectProject(project)
                     }}>Select</button>
-                    <button onClick={() => {
-                        editProject(project)
-                    }}>Edit</button>
-                </td>
+                    </td>
             </tr>)
 
     }
