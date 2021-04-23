@@ -1,15 +1,18 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { IProject } from "../common/definitions";
 import { useProjectContext } from "../common/useProjectContext";
 
 export const ProjectList = () => {
 
     const { projectList, selectedProject, selectProject } = useProjectContext()
+    const l = useLocation()
 
-    // not needed any more
-    // const selectProject = (project: IProject) => {
-    //     selectProject(project)
-    // }
+    const editProject = (project: IProject) => {
+        selectProject(project)
+        l.pathname = ''
+
+    }
 
     const renderProject = (project: IProject, index: number) => {
         if (selectedProject?.id === project.id) {
@@ -30,8 +33,11 @@ export const ProjectList = () => {
                 <td>{project.end?.toDateString()}</td>
                 <td>
                     <button onClick={() => {
-                        console.log('ProjectList select', project)
-                        selectProject(project)}}>Select</button>
+                        selectProject(project)
+                    }}>Select</button>
+                    <button onClick={() => {
+                        editProject(project)
+                    }}>Edit</button>
                 </td>
             </tr>)
 

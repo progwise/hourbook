@@ -1,5 +1,5 @@
-import { useContext, useState } from "react";
-import { IProject } from "../common/definitions";
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { useProjectContext } from "../common/useProjectContext";
 
 
@@ -37,9 +37,9 @@ export const MainMenu = () => {
             <li>
                 {myState.clock?.toLocaleTimeString()}
             </li>
-            <li>Time</li>
-            <li>Projects</li>
-            <li>Reports</li>
+            <li><Link to="/timebook">Timebook</Link></li>
+            <li><Link to="/projects">Projects</Link></li>
+            <li><Link to="/settings">Settings</Link></li>
         </ul>
     )
 }
