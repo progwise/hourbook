@@ -6,7 +6,7 @@ export const TimeBookTable = (props: any) => {
     };
 
     return (
-        <table>
+        <table className="w-full border-gray-50">
         <thead>
             <tr>
                 <th>M</th>

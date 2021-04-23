@@ -14,32 +14,36 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import { DarkModeSwitch } from './components/darkModeSwitch';
 
 function App() {
 
     return (
-        <div className="dark  dark:bg-black container mx-auto px-10 bg-gradient-to-r from-gray-200">
-            <Router>
-                <ProjectContextProvider>
-                    <Logo />
-                    <MainMenu />
-                    <Switch>
-                        <Route path="/projects/edit">
-                            <EditProject />
-                        </Route>
-                        <Route path="/projects">
-                            <ProjectList />
-                        </Route>
-                        <Route path="/timebook">
-                            <TimeBook />
-                        </Route>
-                        <Route path="/settings">
-                            <UserSettings />
-                        </Route>
-                    </Switch>
+        <div className="container mx-auto">
+            <div className="flex flex-wrap items-center justify-center w-full text-center">
+                <DarkModeSwitch />
+                <Router>
+                    <ProjectContextProvider>
+                        <Logo />
+                        <MainMenu />
+                        <Switch>
+                            <Route path="/projects/edit">
+                                <EditProject />
+                            </Route>
+                            <Route path="/projects">
+                                <ProjectList />
+                            </Route>
+                            <Route path="/timebook">
+                                <TimeBook />
+                            </Route>
+                            <Route path="/settings">
+                                <UserSettings />
+                            </Route>
+                        </Switch>
 
-                </ProjectContextProvider>
-            </Router>
+                    </ProjectContextProvider>
+                </Router>
+            </div>
         </div>
     );
 }
