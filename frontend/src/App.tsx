@@ -18,7 +18,7 @@ import {
 function App() {
 
     return (
-        <div className="container mx-auto px-10">
+        <div className="dark  dark:bg-black container mx-auto px-10 bg-gradient-to-r from-gray-200">
             <Router>
                 <ProjectContextProvider>
                     <Logo />

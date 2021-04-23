@@ -1,24 +1,13 @@
 import logo from '../logo.svg'
 import { useState } from "react";
+import { useHistory } from 'react-router';
 
 
 export const Logo = () => {
-    const [newColor, setNewColor] = useState('white')
-    const toggleColor = () => {
-        if (newColor === 'white') {
-            setNewColor('red')
-        }
-        else {
-            setNewColor('white')
-        }
-    }
 
-    const css = {
-        backgroundColor: newColor,
-        width: '200px'
-    }
-    return <div style={css}>
-        <img src={logo} onClick={() => toggleColor()} />
+    const { push } = useHistory()
 
-    </div>
+    return <div className="w-20">
+        <img className="scale-2" src={logo} onClick={() => push('/timebook')} />
+    </div>  
 }

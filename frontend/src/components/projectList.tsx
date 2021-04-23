@@ -44,7 +44,9 @@ export const ProjectList = () => {
 
     }
 
-    return <table>
+    return (
+<div className="container w-full">
+ <table className="table-auto w-full">
         <thead>
             <tr>
                 <th>No</th>
@@ -65,4 +67,8 @@ export const ProjectList = () => {
         </tbody>
         <tfoot></tfoot>
     </table>
+    </div>
+    )
+    
+   
 }
