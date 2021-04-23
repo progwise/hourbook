@@ -36,7 +36,7 @@ export const ProjectList = () => {
                 <td>{project.start?.toDateString()}</td>
                 <td>{project.end?.toDateString()}</td>
                 <td>
-                    <button onClick={() => {
+                    <button className="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" onClick={() => {
                         selectProject(project)
                     }}>Select</button>
                     </td>

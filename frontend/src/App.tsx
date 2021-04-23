@@ -18,27 +18,29 @@ import {
 function App() {
 
     return (
-        <Router>
-            <ProjectContextProvider>
-                <Logo />
-                <MainMenu />
-                <Switch>
-                    <Route path="/projects/edit">
-                        <EditProject />
-                    </Route>
-                    <Route path="/projects">
-                        <ProjectList />
-                    </Route>
-                    <Route path="/timebook">
-                        <TimeBook />
-                    </Route>
-                    <Route path="/settings">
-                        <UserSettings />
-                    </Route>
-                </Switch>
+        <div className="container mx-auto px-10">
+            <Router>
+                <ProjectContextProvider>
+                    <Logo />
+                    <MainMenu />
+                    <Switch>
+                        <Route path="/projects/edit">
+                            <EditProject />
+                        </Route>
+                        <Route path="/projects">
+                            <ProjectList />
+                        </Route>
+                        <Route path="/timebook">
+                            <TimeBook />
+                        </Route>
+                        <Route path="/settings">
+                            <UserSettings />
+                        </Route>
+                    </Switch>
 
-            </ProjectContextProvider>
-        </Router>
+                </ProjectContextProvider>
+            </Router>
+        </div>
     );
 }
 
